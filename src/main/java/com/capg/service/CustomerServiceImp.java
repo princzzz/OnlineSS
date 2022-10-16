@@ -1,6 +1,8 @@
 package com.capg.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -17,7 +19,6 @@ import com.capg.repository.ICustomerRepository;
 
 
 
-
 @Service(value = "customerService")
 @Transactional
 public class CustomerServiceImp implements ICustomerService{
@@ -25,6 +26,16 @@ public class CustomerServiceImp implements ICustomerService{
 	@Autowired
 	private ICustomerRepository customerRepository;
 	
+	@Override
+	public Customerdto getCustomer(String userId) throws CustomerServiceNotFoundException{ 
+		Optional<Customer> optional = customerRepository.findById(userId);
+		Customer customer = optional.orElseThrow(() -> new CustomerServiceNotFoundException("Service.CUSTOMER_NOT_FOUND"));
+		Customerdto customer2 = new Customerdto();
+		customer2.setName(customer.getName());
+		customer2.setEmail(customer.getEmail());
+		customer2.setContactNo(customer.getContactNo());
+		return customer2;
+	}
 	
 	@Override
 	public Integer addCustomer(Customerdto customer) throws CustomerServiceNotFoundException {
@@ -35,37 +46,46 @@ public class CustomerServiceImp implements ICustomerService{
 		customerEntity.setContactNo(customer.getContactNo());
 		customerEntity.setDob(customerEntity.getDob());
 		
-		//Address address= new Address();
+		Addressdto address= new Addressdto();
+		 address.setArea(customer.getAddressdto().getArea());
+		 address.setCity(customer.getAddressdto().getCity());
+		 address.setDoor_no(customer.getAddressdto().getDoor_no());
+		 address.setPincode(customer.getAddressdto().getPincode());
+		 address.setState(customer.getAddressdto().getState());
+		 address.setStreet(customer.getAddressdto().getStreet());
+		 customer.setAddressdto(address);
 		
-		
-		
-		/*
-		
-		Address address = new Address();
-		address.setAddressId(customerDTO.getAddress().getAddressId());
-		address.setCity(customerDTO.getAddress().getCity());
-		address.setStreet(customerDTO.getAddress().getStreet());
-		
-		customer.setAddress(address);
-		
-		*/
-		//Set<Address> addressdto= (Set<Address>) Addressdto.getAddress(); 
-		
-		
-		
-		/*List<CardDTO> cardDTOs = customerDTO.getCards();
-		List<Card> cards; 
-		
-		cards = cardDTOs.stream()
-				.map(c->new Card(c.getCardId(),c.getCardNumber(),c.getExpiryDate()))
-				.collect(Collectors.toList());
-		customer.setCards(cards);*/
-		//customerEntity.setDateOfBirth(customer.getDateOfBirth());
-		//customerEntity.setEmailId(customer.getEmailId());
-		//customerEntity.setName(customer.getName());
-		//customerEntity.setCustomerId(customer.getCustomerId());
 		Customer customerEntity2 = customerRepository.save(customerEntity);
 		return customerEntity2.getUserId();
 	}
+	
+	@Override
+	public void updateCustomer(String userId, Customer customer) throws CustomerServiceNotFoundException {
+		Optional<Customer> customers = customerRepository.findById(userId);
+		Customer c = customers.orElseThrow(() -> new CustomerServiceNotFoundException("Service.CUSTOMER_NOT_FOUND"));
+		c.setContactNo(customer.getContactNo());
+		
+	}
 
+	@Override
+	public void deleteCustomer(String userId) throws CustomerServiceNotFoundException {
+		Optional<Customer> customer = customerRepository.findById(userId);
+		customer.orElseThrow(() -> new CustomerServiceNotFoundException("Service.CUSTOMER_NOT_FOUND"));
+		customerRepository.deleteById(userId);
+	}
+
+	@Override
+	public List<Customerdto> getAllCustomers() throws CustomerServiceNotFoundException {
+		Iterable<Customer> customers = customerRepository.findAll(); 
+		List<Customerdto> customers2 = new ArrayList<>();
+		customers.forEach(customer -> {
+			Customerdto cust = new Customerdto();
+			cust.setName(customer.getName());
+			cust.setContactNo(customer.getContactNo());
+			customers2.add(cust);
+		});
+		if (customers2.isEmpty())
+			throw new CustomerServiceNotFoundException("Service.CUSTOMERS_NOT_FOUND");
+		return customers2;
+	}
 }
