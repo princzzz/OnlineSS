@@ -1,6 +1,7 @@
 package com.capg.dto;
 
 import java.time.LocalDate;
+import java.util.*;
 import java.util.Set;
 
 import com.capg.entity.Address;
@@ -14,7 +15,7 @@ public class Customerdto {
 	private String contactNo;
 	private LocalDate dob;
 	private User1 user1;
-	private Set<Address> houseno;
+	private List<Addressdto> houseno;
 	private Addressdto addressdto;
 	
 	public Addressdto getAddressdto() {
@@ -41,7 +42,7 @@ public class Customerdto {
 	public User1 getUser1() {
 		return user1;
 	}
-	public Set<Address> getHouseno() {
+	public List<Addressdto> getHouseno() {
 		return houseno;
 	}
 	public void setUserId(int userId) {
@@ -62,8 +63,10 @@ public class Customerdto {
 	public void setUser1(User1 user1) {
 		this.user1 = user1;
 	}
-	public void setHouseno(Set<Address> houseno) {
-		this.houseno = houseno;
+	public void setHouseno(Addressdto houseno) {
+		List<Addressdto> list=new ArrayList<>();
+		list.add(houseno);
+		this.houseno = list;
 	}
 	@Override
 	public String toString() {

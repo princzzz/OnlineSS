@@ -1,7 +1,7 @@
 package com.capg.entity;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.capg.dto.Addressdto;
 @Entity
 public class Customer {
     @Id
@@ -22,13 +24,13 @@ public class Customer {
 	private User1 user1;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "userId")
-	private Set<Address> houseno;
+	private List<Addressdto> houseno;
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Customer(int userId, String name, String email, String contactNo, LocalDate dob, User1 user1,
-			Set<Address> houseno) {
+			List<Addressdto> houseno) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -74,11 +76,13 @@ public class Customer {
 	public void setUser1(User1 user1) {
 		this.user1 = user1;
 	}
-	public Set<Address> getHouseno() {
+	public List<Addressdto> getHouseno() {
 		return houseno;
 	}
-	public void setHouseno(Set<Address> houseno) {
-		this.houseno = houseno;
+	public void setHouseno(Addressdto address) {
+		List<Addressdto> list=new ArrayList<>();
+		list.add(address);
+		this.houseno = list;
 	}
 	@Override
 	public String toString() {

@@ -15,8 +15,8 @@ public class Appointmentdto {
 	private LocalDate preferredDate;
 	private LocalTime preferredTime;
 	private SalonService salonService;
-	private Customer customer;
-	private Payment payment;
+	private Customerdto customer;
+	private Paymentdto payment;
 	public long getAppointmentId() {
 		return appointmentId;
 	}
@@ -35,10 +35,10 @@ public class Appointmentdto {
 	public SalonService getSalonService() {
 		return salonService;
 	}
-	public Customer getCustomer() {
+	public Customerdto getCustomerdto() {
 		return customer;
 	}
-	public Payment getPayment() {
+	public Paymentdto getPaymentdto() {
 		return payment;
 	}
 	public void setAppointmentId(long appointmentId) {
@@ -59,10 +59,10 @@ public class Appointmentdto {
 	public void setSalonService(SalonService salonService) {
 		this.salonService = salonService;
 	}
-	public void setCustomer(Customer customer) {
+	public void setCustomerdto(Customerdto customer) {
 		this.customer = customer;
 	}
-	public void setPayment(Payment payment) {
+	public void setPaymentdto(Paymentdto payment) {
 		this.payment = payment;
 	}
 	@Override

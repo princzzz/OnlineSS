@@ -38,7 +38,7 @@ public class CustomerServiceImp implements ICustomerService{
 	}
 	
 	@Override
-	public Integer addCustomer(Customerdto customer) throws CustomerServiceNotFoundException {
+	public Customer addCustomer(Customerdto customer) throws CustomerServiceNotFoundException {
 		Customer customerEntity = new Customer();
 		customerEntity.setUserId(customer.getUserId());
 		customerEntity.setName(customer.getName());
@@ -53,25 +53,27 @@ public class CustomerServiceImp implements ICustomerService{
 		 address.setPincode(customer.getAddressdto().getPincode());
 		 address.setState(customer.getAddressdto().getState());
 		 address.setStreet(customer.getAddressdto().getStreet());
-		 customer.setAddressdto(address);
+		 //customer.setAddressdto(address);
+		 customerEntity.setHouseno(address);
 		
 		Customer customerEntity2 = customerRepository.save(customerEntity);
-		return customerEntity2.getUserId();
+		return customerEntity2;
 	}
 	
 	@Override
-	public void updateCustomer(String userId, Customer customer) throws CustomerServiceNotFoundException {
+	public Customer updateCustomer(String userId, Customer customer) throws CustomerServiceNotFoundException {
 		Optional<Customer> customers = customerRepository.findById(userId);
 		Customer c = customers.orElseThrow(() -> new CustomerServiceNotFoundException("Service.CUSTOMER_NOT_FOUND"));
 		c.setContactNo(customer.getContactNo());
-		
+		return c;
 	}
 
 	@Override
-	public void deleteCustomer(String userId) throws CustomerServiceNotFoundException {
+	public Customer deleteCustomer(String userId) throws CustomerServiceNotFoundException {
 		Optional<Customer> customer = customerRepository.findById(userId);
 		customer.orElseThrow(() -> new CustomerServiceNotFoundException("Service.CUSTOMER_NOT_FOUND"));
 		customerRepository.deleteById(userId);
+		return null;
 	}
 
 	@Override
