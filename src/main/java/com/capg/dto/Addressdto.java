@@ -1,11 +1,13 @@
 package com.capg.dto;
 
-public class Addtessdto {
+import com.capg.entity.Address;
+
+public class Addressdto {
 
 	private String door_no;
 	private String street;
 	private String area;
-	private String city;
+	private String city; 
 	private String state;
 	private int pincode;
 	public String getDoor_no() {
@@ -46,9 +48,10 @@ public class Addtessdto {
 	}
 	@Override
 	public String toString() {
-		return "Addtessdto [door_no=" + door_no + ", street=" + street + ", area=" + area + ", city=" + city
+		return "Addressdto [door_no=" + door_no + ", street=" + street + ", area=" + area + ", city=" + city
 				+ ", state=" + state + ", pincode=" + pincode + "]";
 	}
+	
 	
 	
 }

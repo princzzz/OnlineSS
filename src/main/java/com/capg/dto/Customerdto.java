@@ -15,6 +15,14 @@ public class Customerdto {
 	private LocalDate dob;
 	private User1 user1;
 	private Set<Address> houseno;
+	private Addressdto addressdto;
+	
+	public Addressdto getAddressdto() {
+		return addressdto;
+	}
+	public void setAddressdto(Addressdto addressdto) {
+		this.addressdto = addressdto;
+	}
 	public int getUserId() {
 		return userId;
 	}
@@ -60,8 +68,9 @@ public class Customerdto {
 	@Override
 	public String toString() {
 		return "Customerdto [userId=" + userId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
-				+ ", dob=" + dob + ", user1=" + user1 + ", houseno=" + houseno + "]";
+				+ ", dob=" + dob + ", user1=" + user1 + ", houseno=" + houseno + ", addressdto=" + addressdto + "]";
 	}
+	
 	
 	
 }
