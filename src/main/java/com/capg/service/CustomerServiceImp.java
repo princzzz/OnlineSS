@@ -27,10 +27,11 @@ public class CustomerServiceImp implements ICustomerService{
 	private ICustomerRepository customerRepository;
 	
 	@Override
-	public Customerdto getCustomer(String userId) throws CustomerServiceNotFoundException{ 
+	public Customerdto getCustomer(Integer userId) throws CustomerServiceNotFoundException{ 
 		Optional<Customer> optional = customerRepository.findById(userId);
 		Customer customer = optional.orElseThrow(() -> new CustomerServiceNotFoundException("Service.CUSTOMER_NOT_FOUND"));
 		Customerdto customer2 = new Customerdto();
+		customer2.setUserId(customer.getUserId());
 		customer2.setName(customer.getName());
 		customer2.setEmail(customer.getEmail());
 		customer2.setContactNo(customer.getContactNo());
@@ -46,21 +47,23 @@ public class CustomerServiceImp implements ICustomerService{
 		customerEntity.setContactNo(customer.getContactNo());
 		customerEntity.setDob(customerEntity.getDob());
 		
-		Addressdto address= new Addressdto();
+		 /*
+	     Addressdto address= new Addressdto();
 		 address.setArea(customer.getAddressdto().getArea());
 		 address.setCity(customer.getAddressdto().getCity());
 		 address.setDoor_no(customer.getAddressdto().getDoor_no());
 		 address.setPincode(customer.getAddressdto().getPincode());
 		 address.setState(customer.getAddressdto().getState());
 		 address.setStreet(customer.getAddressdto().getStreet());
-		 customer.setAddressdto(address);
-		
+		 customer.setAddressdto(address); 
+		 */
+		 
 		Customer customerEntity2 = customerRepository.save(customerEntity);
 		return customerEntity2.getUserId();
 	}
 	
 	@Override
-	public void updateCustomer(String userId, Customer customer) throws CustomerServiceNotFoundException {
+	public void updateCustomer(Integer userId, Customer customer) throws CustomerServiceNotFoundException {
 		Optional<Customer> customers = customerRepository.findById(userId);
 		Customer c = customers.orElseThrow(() -> new CustomerServiceNotFoundException("Service.CUSTOMER_NOT_FOUND"));
 		c.setContactNo(customer.getContactNo());
@@ -68,7 +71,7 @@ public class CustomerServiceImp implements ICustomerService{
 	}
 
 	@Override
-	public void deleteCustomer(String userId) throws CustomerServiceNotFoundException {
+	public void deleteCustomer(Integer userId) throws CustomerServiceNotFoundException {
 		Optional<Customer> customer = customerRepository.findById(userId);
 		customer.orElseThrow(() -> new CustomerServiceNotFoundException("Service.CUSTOMER_NOT_FOUND"));
 		customerRepository.deleteById(userId);

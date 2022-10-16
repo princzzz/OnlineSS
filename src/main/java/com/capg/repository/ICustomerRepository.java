@@ -11,7 +11,7 @@ import com.capg.entity.Customer;
 
 
 @Repository 
-public interface ICustomerRepository extends CrudRepository <Customer, String>{
+public interface ICustomerRepository extends CrudRepository <Customer, Integer>{
 
   
 	
