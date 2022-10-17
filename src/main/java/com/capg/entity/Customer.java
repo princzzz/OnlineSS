@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Customer {
     @Id
-	private int userId;
+	private Integer userId;
 	private String name;
 	private String email;
 	private String contactNo;
@@ -27,7 +27,7 @@ public class Customer {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Customer(int userId, String name, String email, String contactNo, LocalDate dob, User1 user1,
+	public Customer(Integer userId, String name, String email, String contactNo, LocalDate dob, User1 user1,
 			Set<Address> houseno) {
 		super();
 		this.userId = userId;
@@ -38,10 +38,10 @@ public class Customer {
 		this.user1 = user1;
 		this.houseno = houseno;
 	}
-	public int getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 	public String getName() {
