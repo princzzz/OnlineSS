@@ -26,37 +26,36 @@ public class SalonService {
 	public long getServiceId() {
 		return serviceId;
 	}
-	public String getServiceName() {
-		return serviceName;
-	}
-	public String getServicePrice() {
-		return servicePrice;
-	}
-	public String getServiceDuration() {
-		return serviceDuration;
-	}
-	public int getDiscount() {
-		return discount;
-	}
 	public void setServiceId(long serviceId) {
 		this.serviceId = serviceId;
+	}
+	public String getServiceName() {
+		return serviceName;
 	}
 	public void setServiceName(String serviceName) {
 		this.serviceName = serviceName;
 	}
+	public String getServicePrice() {
+		return servicePrice;
+	}
 	public void setServicePrice(String servicePrice) {
 		this.servicePrice = servicePrice;
 	}
+	public String getServiceDuration() {
+		return serviceDuration;
+	}
 	public void setServiceDuration(String serviceDuration) {
 		this.serviceDuration = serviceDuration;
+	}
+	public int getDiscount() {
+		return discount;
 	}
 	public void setDiscount(int discount) {
 		this.discount = discount;
 	}
 	@Override
 	public String toString() {
-		return "SalonService [serviceId=" + serviceId + ", serviceName=" + serviceName + ", servicePrice="
+		return "SalonService [serviceId=" + serviceId + ", serviceANme=" + serviceName + ", servicePrice="
 				+ servicePrice + ", serviceDuration=" + serviceDuration + ", discount=" + discount + "]";
 	}
-	
 }
