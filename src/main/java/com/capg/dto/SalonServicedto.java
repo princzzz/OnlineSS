@@ -7,6 +7,19 @@ public class SalonServicedto {
 	private String servicePrice;
 	private String serviceDuration;
 	private int discount;
+	public SalonServicedto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public SalonServicedto(long serviceId, String serviceName, String servicePrice, String serviceDuration,
+			int discount) {
+		super();
+		this.serviceId = serviceId;
+		this.serviceName = serviceName;
+		this.servicePrice = servicePrice;
+		this.serviceDuration = serviceDuration;
+		this.discount = discount;
+	}
 	public long getServiceId() {
 		return serviceId;
 	}
@@ -39,9 +52,10 @@ public class SalonServicedto {
 	}
 	@Override
 	public String toString() {
-		return "SalonServicedto [serviceId=" + serviceId + ", serviceANme=" + serviceName + ", servicePrice="
+		return "SalonServicedto [serviceId=" + serviceId + ", serviceName=" + serviceName + ", servicePrice="
 				+ servicePrice + ", serviceDuration=" + serviceDuration + ", discount=" + discount + "]";
 	}
+	
 	
 	
 }
