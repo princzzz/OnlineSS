@@ -1,9 +1,6 @@
 package com.capg.dto;
 
 import java.time.LocalDate;
-import java.util.Set;
-
-import com.capg.entity.Address;
 import com.capg.entity.User1;
 
 public class Customerdto {

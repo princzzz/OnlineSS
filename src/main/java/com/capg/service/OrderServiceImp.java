@@ -31,15 +31,15 @@ public class OrderServiceImp implements IOrderService{
 		orderEntity.setAmount(order.getAmount());
 		orderEntity.setBillingDate(order.getBillingDate());
 		orderEntity.setPaymentMethod(order.getPaymentMethod());
-		//orderEntity.setCustomer(order.getCustomer());
-		//orderEntity.setPayment(order.getPayment());	
-		Customer custm = new Customer();
+		orderEntity.setCustomer(order.getCustomer());
+		orderEntity.setPayment(order.getPayment());	
+		/*Customer custm = new Customer();
 		custm.setUserId(order.getCustomer().getUserId());
 		orderEntity.setCustomer(custm);
 		
 		Payment paym = new Payment();
 		paym.setPaymentId(order.getPayment().getPaymentId());
-		orderEntity.setPayment(paym);
+		orderEntity.setPayment(paym);*/
 			
 		Orders orderEntity2 = orderRepository.save(orderEntity);
 		return orderEntity2;
@@ -49,18 +49,19 @@ public class OrderServiceImp implements IOrderService{
 	public Orders deleteOrder(Long orderId) throws OrderServiceNotFoundException{
 		
 		Optional<Orders> orders = orderRepository.findById(orderId);
-		orders.orElseThrow(() -> new OrderServiceNotFoundException("Service.Order_NOT_FOUND"));
+		Orders ord = orders.orElseThrow(() -> new OrderServiceNotFoundException("Service.Order_NOT_FOUND"));
 		orderRepository.deleteById(orderId);
-		return null;
+		return ord;
+		
 		
 	}
 	@Override
 	public Orders updateOrder(Long orderId, Orders order) throws OrderServiceNotFoundException{
 		Optional<Orders> order1 = orderRepository.findById(orderId);
 		Orders o = order1.orElseThrow(() -> new OrderServiceNotFoundException("Service.Order_NOT_FOUND"));
-		o.setPaymentMethod(o.getPaymentMethod());
-		o.setAmount(o.getAmount());
-		o.setBillingDate(o.getBillingDate());
+		o.setPaymentMethod(order.getPaymentMethod());
+		o.setAmount(order.getAmount());
+		o.setBillingDate(order.getBillingDate());
 		return o;
 		
 	}
@@ -81,6 +82,7 @@ public class OrderServiceImp implements IOrderService{
 		List<Orders> order3 = new ArrayList<>();
 		order2.forEach(order -> {
 			Orders ords = new Orders();
+			ords.setOrderId(order.getOrderId());
 			ords.setAmount(order.getAmount());
 			ords.setBillingDate(order.getBillingDate());
 			ords.setPaymentMethod(order.getPaymentMethod());

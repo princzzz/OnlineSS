@@ -19,3 +19,40 @@
 17-Oct-2022 20:56:40 DEBUG - Running with Spring Boot v2.6.2, Spring v5.3.14
 17-Oct-2022 20:56:40 INFO - No active profile set, falling back to default profiles: default
 17-Oct-2022 20:56:43 INFO - Started OnlineSsApplication in 3.17 seconds (JVM running for 1005.229)
+17-Oct-2022 21:25:24 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 21144 (C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS\target\classes started by princ in C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS)
+17-Oct-2022 21:25:24 DEBUG - Running with Spring Boot v2.6.2, Spring v5.3.14
+17-Oct-2022 21:25:24 INFO - No active profile set, falling back to default profiles: default
+17-Oct-2022 21:25:27 INFO - Started OnlineSsApplication in 2.76 seconds (JVM running for 2728.702)
+17-Oct-2022 21:49:44 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 21144 (C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS\target\classes started by princ in C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS)
+17-Oct-2022 21:49:44 DEBUG - Running with Spring Boot v2.6.2, Spring v5.3.14
+17-Oct-2022 21:49:44 INFO - No active profile set, falling back to default profiles: default
+17-Oct-2022 21:50:22 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 21144 (C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS\target\classes started by princ in C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS)
+17-Oct-2022 21:50:22 DEBUG - Running with Spring Boot v2.6.2, Spring v5.3.14
+17-Oct-2022 21:50:22 INFO - No active profile set, falling back to default profiles: default
+17-Oct-2022 21:50:25 INFO - Started OnlineSsApplication in 3.531 seconds (JVM running for 4227.055)
+17-Oct-2022 21:50:45 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 21144 (C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS\target\classes started by princ in C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS)
+17-Oct-2022 21:50:45 DEBUG - Running with Spring Boot v2.6.2, Spring v5.3.14
+17-Oct-2022 21:50:45 INFO - No active profile set, falling back to default profiles: default
+17-Oct-2022 21:50:49 INFO - Started OnlineSsApplication in 3.505 seconds (JVM running for 4250.686)
+17-Oct-2022 21:51:41 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 21144 (C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS\target\classes started by princ in C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS)
+17-Oct-2022 21:51:41 DEBUG - Running with Spring Boot v2.6.2, Spring v5.3.14
+17-Oct-2022 21:51:41 INFO - No active profile set, falling back to default profiles: default
+17-Oct-2022 21:51:45 INFO - Started OnlineSsApplication in 4.196 seconds (JVM running for 4306.935)
+17-Oct-2022 21:52:36 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 21144 (C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS\target\classes started by princ in C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS)
+17-Oct-2022 21:52:36 DEBUG - Running with Spring Boot v2.6.2, Spring v5.3.14
+17-Oct-2022 21:52:36 INFO - No active profile set, falling back to default profiles: default
+17-Oct-2022 21:52:38 INFO - Started OnlineSsApplication in 2.442 seconds (JVM running for 4359.913)
+17-Oct-2022 21:53:16 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 21144 (C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS\target\classes started by princ in C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS)
+17-Oct-2022 21:53:16 DEBUG - Running with Spring Boot v2.6.2, Spring v5.3.14
+17-Oct-2022 21:53:16 INFO - No active profile set, falling back to default profiles: default
+17-Oct-2022 21:53:18 INFO - Started OnlineSsApplication in 2.847 seconds (JVM running for 4400.213)
+17-Oct-2022 21:53:38 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 21144 (C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS\target\classes started by princ in C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS)
+17-Oct-2022 21:53:38 DEBUG - Running with Spring Boot v2.6.2, Spring v5.3.14
+17-Oct-2022 21:53:38 INFO - No active profile set, falling back to default profiles: default
+17-Oct-2022 21:53:42 INFO - Started OnlineSsApplication in 3.785 seconds (JVM running for 4423.818)
+17-Oct-2022 21:53:59 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 22060 (C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS\target\classes started by princ in C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS)
+17-Oct-2022 21:53:59 DEBUG - Running with Spring Boot v2.6.2, Spring v5.3.14
+17-Oct-2022 21:53:59 INFO - No active profile set, falling back to default profiles: default
+17-Oct-2022 22:06:16 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 21144 (C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS\target\classes started by princ in C:\Users\princ\Documents\workspace-spring-tool-suite-4-4.16.0.RELEASE\OnlineSS)
+17-Oct-2022 22:06:16 DEBUG - Running with Spring Boot v2.6.2, Spring v5.3.14
+17-Oct-2022 22:06:16 INFO - No active profile set, falling back to default profiles: default

@@ -2,6 +2,8 @@ package com.capg.controller;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.aop.ThrowsAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -36,7 +38,8 @@ public class CustomerAPI {
 	@GetMapping(value = "/customers/{userId}")
 	public ResponseEntity<Customerdto> getCustomer(@PathVariable Integer userId) throws CustomerServiceNotFoundException {
 		Customerdto customer = icustomerService.getCustomer(userId);
-		return new ResponseEntity<>(customer, HttpStatus.OK);
+		//Logger.info(environment.getProperty("CustomerAPI.INSERT_SUCCESS"));
+		return new ResponseEntity<>(customer, HttpStatus.OK); 
 	}
 	
 	@GetMapping(value = "/customers") 
