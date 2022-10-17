@@ -66,7 +66,8 @@ public class CustomerServiceImp implements ICustomerService{
 	public void updateCustomer(Integer userId, Customer customer) throws CustomerServiceNotFoundException {
 		Optional<Customer> customers = customerRepository.findById(userId);
 		Customer c = customers.orElseThrow(() -> new CustomerServiceNotFoundException("Service.CUSTOMER_NOT_FOUND"));
-		c.setContactNo(customer.getContactNo());
+		c.setContactNo(c.getContactNo());
+		
 		
 	}
 
@@ -83,6 +84,7 @@ public class CustomerServiceImp implements ICustomerService{
 		List<Customerdto> customers2 = new ArrayList<>();
 		customers.forEach(customer -> {
 			Customerdto cust = new Customerdto();
+			cust.setUserId(customer.getUserId());
 			cust.setName(customer.getName());
 			cust.setContactNo(customer.getContactNo());
 			customers2.add(cust);
