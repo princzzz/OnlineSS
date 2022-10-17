@@ -10,6 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.capg.dto.Customerdto;
+import com.capg.dto.Paymentdto;
+import com.capg.dto.SalonServicedto;
+
 @Entity
 public class Appointment {
     @Id
