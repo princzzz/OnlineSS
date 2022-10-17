@@ -13,7 +13,7 @@ public interface ISalonService {
      public void updateService(Long serviceId, SalonService salonService) throws SalonServiceNotFoundException;
 	public SalonService getService(Long serviceId) throws SalonServiceNotFoundException;
 	public List<SalonService> getAllServices() throws SalonServiceNotFoundException;
-	public List<SalonService> getServiceByName() throws SalonServiceNotFoundException;
+	public List<SalonService> getServiceByName(String serviceName) throws SalonServiceNotFoundException;
 	public List<SalonService> getServiceByPrice(String servicePrice) throws SalonServiceNotFoundException;
-	public List<SalonService> getServicesByDuration() throws SalonServiceNotFoundException;
+	public List<SalonService> getServicesByDuration(String serviceDuration) throws SalonServiceNotFoundException;
 }

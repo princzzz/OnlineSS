@@ -3,15 +3,28 @@ package com.capg.dto;
 public class SalonServicedto {
 
 	private long serviceId;
-	private String serviceANme;
+	private String serviceName;
 	private String servicePrice;
 	private String serviceDuration;
 	private int discount;
+	public SalonServicedto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public SalonServicedto(long serviceId, String serviceName, String servicePrice, String serviceDuration,
+			int discount) {
+		super();
+		this.serviceId = serviceId;
+		this.serviceName = serviceName;
+		this.servicePrice = servicePrice;
+		this.serviceDuration = serviceDuration;
+		this.discount = discount;
+	}
 	public long getServiceId() {
 		return serviceId;
 	}
-	public String getServiceANme() {
-		return serviceANme;
+	public String getServiceName() {
+		return serviceName;
 	}
 	public String getServicePrice() {
 		return servicePrice;
@@ -25,8 +38,8 @@ public class SalonServicedto {
 	public void setServiceId(long serviceId) {
 		this.serviceId = serviceId;
 	}
-	public void setServiceANme(String serviceANme) {
-		this.serviceANme = serviceANme;
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
 	}
 	public void setServicePrice(String servicePrice) {
 		this.servicePrice = servicePrice;
@@ -39,9 +52,10 @@ public class SalonServicedto {
 	}
 	@Override
 	public String toString() {
-		return "SalonServicedto [serviceId=" + serviceId + ", serviceANme=" + serviceANme + ", servicePrice="
+		return "SalonServicedto [serviceId=" + serviceId + ", serviceName=" + serviceName + ", servicePrice="
 				+ servicePrice + ", serviceDuration=" + serviceDuration + ", discount=" + discount + "]";
 	}
+	
 	
 	
 }

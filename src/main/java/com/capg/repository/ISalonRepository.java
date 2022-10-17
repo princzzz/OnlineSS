@@ -13,5 +13,8 @@ import com.capg.entity.SalonService;
 public interface ISalonRepository extends JpaRepository<SalonService, Long>{
 	
 	public List<SalonService> findByServicePrice(String servicePrice);
-
+    
+    public List<SalonService> findByServiceName(String serviceName);
+	
+	public List<SalonService> findByServiceDuration(String serviceDuration);
 }

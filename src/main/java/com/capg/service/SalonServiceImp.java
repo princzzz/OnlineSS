@@ -29,7 +29,7 @@ public class SalonServiceImp implements ISalonService{
 	public SalonService addService(SalonServicedto salonService) throws SalonServiceNotFoundException{
 		SalonService s=new SalonService();
 		s.setServiceId(salonService.getServiceId());
-		s.setServiceANme(salonService.getServiceANme());
+		s.setServiceName(salonService.getServiceName());
 		s.setServicePrice(salonService.getServicePrice());
 		s.setServiceDuration(salonService.getServiceDuration());
 		s.setDiscount(salonService.getDiscount());
@@ -52,7 +52,7 @@ public class SalonServiceImp implements ISalonService{
     public void updateService(Long serviceId, SalonService salonService) throws SalonServiceNotFoundException{
 		Optional<SalonService> salon = salonRepository.findById(serviceId);
 		SalonService s = salon.orElseThrow(() -> new SalonServiceNotFoundException("Service.Order_NOT_FOUND"));
-		 s.setServiceANme(salonService.getServiceANme());
+		 s.setServiceName(salonService.getServiceName());
        
 	}
 	
@@ -62,7 +62,7 @@ public class SalonServiceImp implements ISalonService{
 		SalonService s = optional.orElseThrow(() -> new SalonServiceNotFoundException("Service.Order_NOT_FOUND"));
 		SalonService s1 = new SalonService();
 		s1.setDiscount(s.getDiscount());
-		s1.setServiceANme(s.getServiceANme());
+		s1.setServiceName(s.getServiceName());
 		s1.setServiceDuration(s.getServiceDuration());
 		s1.setServiceId(s.getServiceId());
 		s1.setServicePrice(s.getServicePrice());
@@ -78,7 +78,7 @@ public class SalonServiceImp implements ISalonService{
 		order2.forEach(order -> {
 			SalonService s = new SalonService();
 			s.setDiscount(order.getDiscount());
-			s.setServiceANme(order.getServiceANme());
+			s.setServiceName(order.getServiceName());
 			s.setServiceDuration(order.getServiceDuration());
 			s.setServiceId(order.getServiceId());
 			s.setServicePrice(order.getServicePrice());
@@ -90,13 +90,13 @@ public class SalonServiceImp implements ISalonService{
 		return s3;
 	}
 	@Override
-	public List<SalonService> getServiceByName() throws SalonServiceNotFoundException{
-		Iterable<SalonService> order2 = salonRepository.findAll(); 
+	public List<SalonService> getServiceByName(String serviceANme) throws SalonServiceNotFoundException{
+		Iterable<SalonService> order2 = salonRepository.findByServiceName(serviceANme); 
 		List<SalonService> s3 = new ArrayList<>();
 		order2.forEach(order -> {
 			SalonService s = new SalonService();
 			s.setDiscount(order.getDiscount());
-			s.setServiceANme(order.getServiceANme());
+			s.setServiceName(order.getServiceName());
 			s.setServiceDuration(order.getServiceDuration());
 			s.setServiceId(order.getServiceId());
 			s.setServicePrice(order.getServicePrice());
@@ -115,7 +115,7 @@ public class SalonServiceImp implements ISalonService{
 		order2.forEach(order -> {
 			SalonService s = new SalonService();
 			s.setDiscount(order.getDiscount());
-			s.setServiceANme(order.getServiceANme());
+			s.setServiceName(order.getServiceName());
 			s.setServiceDuration(order.getServiceDuration());
 			s.setServiceId(order.getServiceId());
 			s.setServicePrice(order.getServicePrice());
@@ -127,13 +127,13 @@ public class SalonServiceImp implements ISalonService{
 		return s3;
 	}
  @Override
-	public List<SalonService> getServicesByDuration() throws SalonServiceNotFoundException{
-		Iterable<SalonService> order2 = salonRepository.findAll(); 
+	public List<SalonService> getServicesByDuration(String serviceDuration) throws SalonServiceNotFoundException{
+		Iterable<SalonService> order2 = salonRepository.findByServiceDuration(serviceDuration);
 		List<SalonService> s3 = new ArrayList<>();
 		order2.forEach(order -> {
 			SalonService s = new SalonService();
 			s.setDiscount(order.getDiscount());
-			s.setServiceANme(order.getServiceANme());
+			s.setServiceName(order.getServiceName());
 			s.setServiceDuration(order.getServiceDuration());
 			s.setServiceId(order.getServiceId());
 			s.setServicePrice(order.getServicePrice());
