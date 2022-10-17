@@ -1,5 +1,7 @@
 package com.capg.service;
+
 import java.util.ArrayList;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +9,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.capg.dto.Ordersdto;
-import com.capg.dto.Paymentdto;
+
 import com.capg.entity.Customer;
 import com.capg.entity.Orders;
 import com.capg.entity.Payment;
@@ -24,7 +25,7 @@ public class OrderServiceImp implements IOrderService{
 	private IOrderRepository orderRepository;
 	
 	@Override
-	public Orders addOrder(Ordersdto order) throws OrderServiceNotFoundException{
+	public Orders addOrder(Orders order) throws OrderServiceNotFoundException{
 		Orders orderEntity = new Orders();
 		orderEntity.setOrderId(order.getOrderId());
 		orderEntity.setAmount(order.getAmount());
@@ -54,10 +55,13 @@ public class OrderServiceImp implements IOrderService{
 		
 	}
 	@Override
-	public void updateOrder(Long orderId, Orders orders) throws OrderServiceNotFoundException{
-		Optional<Orders> order = orderRepository.findById(orderId);
-		Orders o = order.orElseThrow(() -> new OrderServiceNotFoundException("Service.Order_NOT_FOUND"));
-		o.setPaymentMethod(orders.getPaymentMethod());
+	public Orders updateOrder(Long orderId, Orders order) throws OrderServiceNotFoundException{
+		Optional<Orders> order1 = orderRepository.findById(orderId);
+		Orders o = order1.orElseThrow(() -> new OrderServiceNotFoundException("Service.Order_NOT_FOUND"));
+		o.setPaymentMethod(o.getPaymentMethod());
+		o.setAmount(o.getAmount());
+		o.setBillingDate(o.getBillingDate());
+		return o;
 		
 	}
 	@Override

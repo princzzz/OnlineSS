@@ -63,10 +63,11 @@ public class CustomerServiceImp implements ICustomerService{
 	}
 	
 	@Override
-	public void updateCustomer(Integer userId, Customer customer) throws CustomerServiceNotFoundException {
+	public Customer updateCustomer(Integer userId, Customerdto customer) throws CustomerServiceNotFoundException {
 		Optional<Customer> customers = customerRepository.findById(userId);
 		Customer c = customers.orElseThrow(() -> new CustomerServiceNotFoundException("Service.CUSTOMER_NOT_FOUND"));
-		c.setContactNo(c.getContactNo());
+		c.setContactNo(customer.getContactNo());
+		return c;
 		
 		
 	}

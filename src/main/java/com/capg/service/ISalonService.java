@@ -14,6 +14,6 @@ public interface ISalonService {
 	public SalonService getService(Long serviceId) throws SalonServiceNotFoundException;
 	public List<SalonService> getAllServices() throws SalonServiceNotFoundException;
 	public List<SalonService> getServiceByName() throws SalonServiceNotFoundException;
-	public List<SalonService> getServiceByPrice() throws SalonServiceNotFoundException;
+	public List<SalonService> getServiceByPrice(String servicePrice) throws SalonServiceNotFoundException;
 	public List<SalonService> getServicesByDuration() throws SalonServiceNotFoundException;
 }

@@ -8,22 +8,13 @@ import com.capg.entity.User1;
 
 public class Customerdto {
 
-	private int userId;
+	private Integer userId;
 	private String name;
 	private String email;
 	private String contactNo;
 	private LocalDate dob;
 	private User1 user1;
-	private Set<Address> houseno;
-	private Addressdto addressdto;
-	
-	public Addressdto getAddressdto() {
-		return addressdto;
-	}
-	public void setAddressdto(Addressdto addressdto) {
-		this.addressdto = addressdto;
-	}
-	public int getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
 	public String getName() {
@@ -41,10 +32,7 @@ public class Customerdto {
 	public User1 getUser1() {
 		return user1;
 	}
-	public Set<Address> getHouseno() {
-		return houseno;
-	}
-	public void setUserId(int userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 	public void setName(String name) {
@@ -62,14 +50,27 @@ public class Customerdto {
 	public void setUser1(User1 user1) {
 		this.user1 = user1;
 	}
-	public void setHouseno(Set<Address> houseno) {
-		this.houseno = houseno;
-	}
 	@Override
 	public String toString() {
 		return "Customerdto [userId=" + userId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
-				+ ", dob=" + dob + ", user1=" + user1 + ", houseno=" + houseno + ", addressdto=" + addressdto + "]";
+				+ ", dob=" + dob + ", user1=" + user1 + "]";
 	}
+	public Customerdto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Customerdto(Integer userId, String name, String email, String contactNo, LocalDate dob, User1 user1) {
+		super();
+		this.userId = userId;
+		this.name = name;
+		this.email = email;
+		this.contactNo = contactNo;
+		this.dob = dob;
+		this.user1 = user1;
+	}
+	
+	
+	
 	
 	
 	

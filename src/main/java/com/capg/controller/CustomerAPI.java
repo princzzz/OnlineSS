@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capg.dto.Customerdto;
+import com.capg.entity.Customer;
 import com.capg.exception.CustomerServiceNotFoundException;
 import com.capg.exception.SalonServiceNotFoundException;
 import com.capg.service.ICustomerService;
-
 
 
 @RestController
@@ -39,7 +39,7 @@ public class CustomerAPI {
 		return new ResponseEntity<>(customer, HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "/customers")
+	@GetMapping(value = "/customers") 
 	public ResponseEntity<List<Customerdto>> getAllCustomers() throws CustomerServiceNotFoundException {
 		List<Customerdto> customerList = icustomerService.getAllCustomers();
 		return new ResponseEntity<>(customerList, HttpStatus.OK);
@@ -51,20 +51,20 @@ public class CustomerAPI {
 		String successMessage = environment.getProperty("API.INSERT_SUCCESS") + userId;
 		return new ResponseEntity<>(successMessage, HttpStatus.CREATED);
 	}
-	/*
-	@PutMapping(value = "/customers/{customerId}")
+	
+	@PutMapping(value = "/customers/{userId}")
 	public ResponseEntity<String> updateCustomer(@PathVariable Integer userId, @RequestBody Customerdto customer)
 			throws CustomerServiceNotFoundException {
-		icustomerService.updateCustomer(userId, customer.getContactNo());
+		icustomerService.updateCustomer(userId, customer);
 		String successMessage = environment.getProperty("API.UPDATE_SUCCESS");
 		return new ResponseEntity<>(successMessage, HttpStatus.OK);
 	}
-	*/
+	
 
-	@DeleteMapping(value = "/customers/{customerId}")
+	@DeleteMapping(value = "/customers/{userId}")
 	public ResponseEntity<String> deleteCustomer(@PathVariable Integer userId) throws CustomerServiceNotFoundException {
-		icustomerService.deleteCustomer(userId) ;
+		icustomerService.deleteCustomer(userId);
 		String successMessage = environment.getProperty("API.DELETE_SUCCESS");
 		return new ResponseEntity<>(successMessage, HttpStatus.OK);
-	}
+	} 
 }

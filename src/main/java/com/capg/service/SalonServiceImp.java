@@ -25,7 +25,7 @@ public class SalonServiceImp implements ISalonService{
 	@Autowired
 	private ISalonRepository salonRepository;
 	
-    
+    @Override
 	public SalonService addService(SalonServicedto salonService) throws SalonServiceNotFoundException{
 		SalonService s=new SalonService();
 		s.setServiceId(salonService.getServiceId());
@@ -48,7 +48,7 @@ public class SalonServiceImp implements ISalonService{
 		return null;
 	}
 	
-	
+	@Override
     public void updateService(Long serviceId, SalonService salonService) throws SalonServiceNotFoundException{
 		Optional<SalonService> salon = salonRepository.findById(serviceId);
 		SalonService s = salon.orElseThrow(() -> new SalonServiceNotFoundException("Service.Order_NOT_FOUND"));
@@ -56,7 +56,7 @@ public class SalonServiceImp implements ISalonService{
        
 	}
 	
-    
+    @Override
 	public SalonService getService(Long serviceId) throws SalonServiceNotFoundException{
 		Optional<SalonService> optional = salonRepository.findById(serviceId);
 		SalonService s = optional.orElseThrow(() -> new SalonServiceNotFoundException("Service.Order_NOT_FOUND"));
@@ -70,6 +70,7 @@ public class SalonServiceImp implements ISalonService{
 		
 	}
 
+    @Override
 	public List<SalonService> getAllServices() throws SalonServiceNotFoundException{
 		
 		Iterable<SalonService> order2 = salonRepository.findAll(); 
@@ -88,7 +89,7 @@ public class SalonServiceImp implements ISalonService{
 			throw new SalonServiceNotFoundException("Service.Order_NOT_FOUND");
 		return s3;
 	}
-	
+	@Override
 	public List<SalonService> getServiceByName() throws SalonServiceNotFoundException{
 		Iterable<SalonService> order2 = salonRepository.findAll(); 
 		List<SalonService> s3 = new ArrayList<>();
@@ -107,9 +108,9 @@ public class SalonServiceImp implements ISalonService{
 		return s3;
 	}
 
-
-	public List<SalonService> getServiceByPrice() throws SalonServiceNotFoundException{
-		Iterable<SalonService> order2 = salonRepository.findAll(); 
+    @Override
+	public List<SalonService> getServiceByPrice(String servicePrice) throws SalonServiceNotFoundException{
+		Iterable<SalonService> order2 = salonRepository.findByServicePrice(servicePrice); 
 		List<SalonService> s3 = new ArrayList<>();
 		order2.forEach(order -> {
 			SalonService s = new SalonService();
@@ -125,7 +126,7 @@ public class SalonServiceImp implements ISalonService{
 			throw new SalonServiceNotFoundException("Service.Order_NOT_FOUND");
 		return s3;
 	}
-
+ @Override
 	public List<SalonService> getServicesByDuration() throws SalonServiceNotFoundException{
 		Iterable<SalonService> order2 = salonRepository.findAll(); 
 		List<SalonService> s3 = new ArrayList<>();
@@ -143,5 +144,6 @@ public class SalonServiceImp implements ISalonService{
 			throw new SalonServiceNotFoundException("Service.Order_NOT_FOUND");
 		return s3;
 	}
+
 
 }
